@@ -57,7 +57,7 @@ class DbTransfer(object):
                 'u':dt_transfer[id][0],
                 'd':dt_transfer[id][1],
                 'p':id,
-                'time':time
+                'time':last_time
             }
             info.append(tmp)
         info = json.dumps(info)
