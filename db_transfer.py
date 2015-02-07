@@ -9,9 +9,9 @@ import Config
 import json
 
 try:
-    import urllib2 as urllib;
+    import urllib2 as urllib
 except:
-    import urllib;
+    import urllib
 
 class DbTransfer(object):
 
@@ -63,14 +63,15 @@ class DbTransfer(object):
         info = json.dumps(info)
         stream = urllib.urlopen(Config.apiurl,info)
         data = stream.read()
+        print data
 
     @staticmethod
     def pull_db_all_user():
         #数据库所有用户信息
         users = []
         try:
-            stream = urllib.urlopen(Config.apiurl,timeout=30);
-            users = stream.read();
+            stream = urllib.urlopen(Config.apiurl,timeout=30)
+            users = stream.read()
             users = json.loads(users)
         except IOError:
             print 'ERROR: Reading users timeout.'
@@ -130,7 +131,7 @@ class DbTransfer(object):
             except Exception as e:
                 logging.warn('db thread except:%s' % e)
             finally:
-                time.sleep(15)
+                time.sleep(5)
 
 
 #SQLData.pull_db_all_user()
